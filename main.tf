@@ -43,6 +43,8 @@ terraform {
     bucket         = "terraform-teknobucket-state"
     key            = "terraform.tfstate"
     region         = "us-east-2"
+    access_key     = "AKIA4Q4JUKWLPYLH2HZS"
+    secret_key     = "vVVrrz8kPXTq1bmtsM3dR2JngbOxPg7TcEmu9fWR"
     #Replace this with your DynamoDB table name!
     dynamodb_table = "tf-up-and-run-locks"
     encrypt        = true
