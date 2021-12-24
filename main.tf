@@ -36,17 +36,3 @@ resource "aws_dynamodb_table" "terraform_locks" {
       }
 }
 
-#Step 3 - Creates S3 backend
-terraform {
-  backend "s3" {
-    #Replace this with your bucket name!
-    bucket         = "terraform-teknobucket-state"
-    key            = "terraform.tfstate"
-    region         = "us-east-2"
-    access_key     = "AKIA4Q4JUKWLPYLH2HZS"
-    secret_key     = "vVVrrz8kPXTq1bmtsM3dR2JngbOxPg7TcEmu9fWR"
-    #Replace this with your DynamoDB table name!
-    dynamodb_table = "tf-up-and-run-locks"
-    encrypt        = true
-    }
-}
