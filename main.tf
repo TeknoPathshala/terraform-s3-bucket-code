@@ -41,7 +41,7 @@ terraform {
   backend "s3" {
     #Replace this with your bucket name!
     bucket         = "terraform-teknobucket-state"
-    key            = "dc/s3/terraform.tfstate"
+    key            = "terraform-teknobucket-state/terraform.tfstate"
     region         = "us-east-2"
     #Replace this with your DynamoDB table name!
     dynamodb_table = "tf-up-and-run-locks"
