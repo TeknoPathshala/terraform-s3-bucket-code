@@ -1,38 +1,16 @@
 provider "aws" {
-  region     = "us-west-2"
-  access_key = "Jl9/pClizcZeq+Ycz8L/TkUa4uXeyFrbCDD/s3Q2"
-  secret_key = "AKIAV4LY4XYPL4IJUWRX"
+  region = "us-west-2"
 }
-
-#1 -this will create a S3 bucket in AWS
-resource "aws_s3_bucket" "terraform_state_s3" {
-  #make sure you give unique bucket name
-  bucket = "terraform-teknobucket1-state" 
-  force_destroy = true
-# Enable versioning to see full revision history of our state files
+resource "aws_s3_bucket" "example" {
+  bucket = "my-test-s3-terraform-bucket"
+  acl = "private"
   versioning {
-         enabled = true
-        }
-
-# Enable server-side encryption by default
-server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
-    }
+    enabled = true
+  }
+  tags {
+    Name = "my-test-s3-terraform-bucket"
   }
 }
-
-# 2 - this Creates Dynamo Table
-resource "aws_dynamodb_table" "terraform_locks" {
-# Give unique name for dynamo table name
-  name         = "TerraFom1-up-and-run-locks"
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "LockID"
-        attribute {
-         name = "LockID"
-         type = "S"
       }
 }
 
