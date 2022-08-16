@@ -5,7 +5,7 @@ region ="us-east-2"
 }
 
 resource "aws_s3_bucket" "examples" {
-  bucket = "my-exampe-bucket"
+  bucket = "my-example-bucket"
 }
 
 resource "aws_s3_bucket_acl" "example_bucket_acl" {
