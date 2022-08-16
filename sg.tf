@@ -1,29 +1,8 @@
-resource "aws_security_group" "SecurityGroupsByNYM"{
-     name = "SecurityGroupsMyTF"
-     description = "This SG created by Automatically through TF"
-     vpc_id     = "vpc-06ae3c2bbaf9d6f81"
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+}
 
-     ingress {
-         description = "Enabling the INbound Rule"
-         from_port = 8080
-         to_port   = 8080
-         protocol = "tcp"
-         cidr_block = ["0.0.0.0/0"]
-     }
-
-     egress {
-         description = "Enabling the Outbound Rule"
-         from_port = 0
-         to_port   = 65535
-         protocol = "tcp"
-         
-     }
-
-     tags = {
-
-         Name = "SG By TF"
-     }
-     
-     
-
+resource "aws_vpc_ipv4_cidr_block_association" "secondary_cidr" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "172.2.0.0/16"
 }
