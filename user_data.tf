@@ -1,10 +1,10 @@
 #!/bin/bash -xe
 
 # Setpassword & DB Variables
-DBName='DB_NAME'
-DBUser='DB_USER'
-DBPassword='DB_PASSWORD'
-DBRootPassword='DB_PASSWORD'
+DBName='tcw'
+DBUser='tcw'
+DBPassword='PASSWORD'
+DBRootPassword='PASSWORD'
 DBEndpoint='RDS_DB_ENDPOINT'
 
 # System Updates
